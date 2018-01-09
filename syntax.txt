@@ -1,0 +1,28 @@
+Resize Frame                                    frame = cv2.resize(frame, (0,0), fx=0.5, fy=0.5)
+
+Convert skimage frame to cv2                    edge = img_as_ubyte(edge)
+
+Convert BGR to Gray                             cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+Test On Image                                   font = cv.FONT_HERSHEY_SIMPLEX
+                                                cv2.putText(img, "STRING", (x,y), font, 4, (255,255,255), 2, cv2.LINE_AA)
+
+Threshold                                       ret, threshold = cv2.threshold(img, 127, 255, cv2.THRESH_BINARY)
+                                                thresh = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 11, 2)
+
+Blur                                            blur = cv2.GaussianBlur(img, (5,5), 0)
+
+Get Rect Values                                 x,y,w,h = cv2.boundingRect (cnt)
+
+Draw Rectangle                                  cv2.rectangle (img, (x,y), (x+w, y+h), (255,255,255), 2)
+
+Erosion and Dilation                            kernel = np.ones((5,5), np.uint8)
+                                                erosion = cv2.erode(img, kernel, iterations = 1)
+                                                dilation = cv2.dilate(img, kernel, iterations = 1)
+
+Open and Close                                  closing = cv2.morphologyEx(img, cv2.MORPH_CLOSE, kernel)
+                                                opening = cv2.morphologyEx(img, cv2.MORPH_OPEN, kernel)
+
+Find Contours                                   _, cnts, hierarchy = cv2.findContours (img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+
+Area of Contours                                area = cv2.contourArea(cnt)
