@@ -1,0 +1,5 @@
+git init
+git add filename
+git commit -m "commit"
+#git remote add origin https://github.com/jesterishere/backup.git
+git push -u origin master
